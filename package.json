@@ -1,0 +1,56 @@
+{
+  "name": "@coast/logger",
+  "version": "1.0.0",
+  "description": "A Node/browser application logger",
+  "main": "./dist/main.js",
+  "scripts": {
+    "build": "rimraf ./dist && babel src --out-dir ./dist",
+    "lint": "eslint ./src",
+    "lintfix": "eslint ./src --fix",
+    "watch": "watch 'yarn build' src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coast-app/logger.git"
+  },
+  "author": "Jeremy Shimko <jeremy@coastapp.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coast-app/logger/issues"
+  },
+  "homepage": "https://github.com/coast-app/logger#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.14.2",
+    "rimraf": "^2.6.3",
+    "semantic-release": "^15.13.18",
+    "watch": "^1.0.2"
+  },
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "bunyan-format": "^0.2.1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "rules": {
+      "comma-dangle": ["error", "never"],
+      "object-curly-newline": ["error", {
+        "ObjectExpression": { "multiline": true },
+        "ObjectPattern": { "multiline": true }
+      }]
+    }
+  }
+}
