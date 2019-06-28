@@ -51,7 +51,7 @@ The log levels in Bunyan are as follows. The level descriptions are best practic
 ## Usage
 
 ```js
-import Logger from "@jshimko/logger";
+import Logger from "@coast/logger";
 
 /**
  * Logging general info

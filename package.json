@@ -1,6 +1,6 @@
 {
   "name": "@coast/logger",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A Node/browser application logger",
   "main": "./dist/main.js",
   "scripts": {
