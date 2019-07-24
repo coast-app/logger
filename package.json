@@ -20,16 +20,16 @@
   },
   "homepage": "https://github.com/coast-app/logger#readme",
   "devDependencies": {
-    "@babel/cli": "^7.5.0",
-    "@babel/core": "^7.5.4",
-    "@babel/preset-env": "^7.5.4",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "babel-eslint": "^10.0.2",
-    "eslint": "^6.0.1",
+    "eslint": "^6.1.0",
     "eslint-config-airbnb": "^17.1.1",
-    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.2",
-    "lodash": "^4.17.14",
+    "eslint-plugin-react": "^7.14.3",
+    "lodash": "^4.17.15",
     "rimraf": "^2.6.3",
     "semantic-release": "^15.13.18",
     "watch": "^1.0.2"
@@ -48,6 +48,7 @@
     "parser": "babel-eslint",
     "rules": {
       "comma-dangle": ["error", "never"],
+      "no-underscore-dangle": 0,
       "object-curly-newline": ["error", {
         "ObjectExpression": { "multiline": true },
         "ObjectPattern": { "multiline": true }
