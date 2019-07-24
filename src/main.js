@@ -24,10 +24,44 @@ const streams = [{
   stream: bunyanFormat({ outputMode })
 }];
 
+// serializer to pull useful fields from the req object
+function reqSerializer(req) {
+  if (!req || !req.connection) {
+    return req;
+  }
+
+  const { method, url, headers, connection: { remoteAddress, remotePort } } = req;
+
+  return {
+    method,
+    url,
+    headers,
+    remoteAddress,
+    remotePort
+  };
+}
+
+// serializer to pull useful fields from the res object
+function resSerializer(res) {
+  if (!res || !res.statusCode) {
+    return res;
+  }
+  return {
+    statusCode: res.statusCode,
+    header: res._header
+  };
+}
+
 // create default logger instance
 const Logger = bunyan.createLogger({
   name: process.env.APP_NAME || 'API',
-  streams
+  streams,
+  serializers: {
+    req: reqSerializer,
+    res: resSerializer,
+    error: bunyan.stdSerializers.err,
+    err: bunyan.stdSerializers.err
+  }
 });
 
 export default Logger;
