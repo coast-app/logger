@@ -2,12 +2,10 @@
   "name": "@coast/logger",
   "version": "1.2.2",
   "description": "A Node/browser application logger",
-  "main": "./dist/main.js",
+  "main": "./dist/logger.js",
   "scripts": {
-    "build": "rimraf ./dist && babel src --out-dir ./dist",
-    "lint": "eslint ./src",
-    "lintfix": "eslint ./src --fix",
-    "watch": "watch 'yarn build' src"
+    "build": "rimraf ./dist && tsc -p tsconfig.json",
+    "lint": "tslint --project tsconfig.json src/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -20,38 +18,14 @@
   },
   "homepage": "https://github.com/coast-app/logger#readme",
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.2.2",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.3",
-    "lodash": "^4.17.15",
     "rimraf": "^3.0.0",
-    "watch": "^1.0.2"
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4"
   },
   "dependencies": {
+    "@types/bunyan": "^1.8.6",
+    "@types/bunyan-format": "^0.2.3",
     "bunyan": "^1.8.12",
     "bunyan-format": "^0.2.1"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
-  },
-  "eslintConfig": {
-    "extends": "airbnb",
-    "parser": "babel-eslint",
-    "rules": {
-      "comma-dangle": ["error", "never"],
-      "no-underscore-dangle": 0,
-      "object-curly-newline": ["error", {
-        "ObjectExpression": { "multiline": true },
-        "ObjectPattern": { "multiline": true }
-      }]
-    }
   }
 }
