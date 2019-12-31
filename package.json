@@ -18,13 +18,13 @@
   },
   "homepage": "https://github.com/coast-app/logger#readme",
   "devDependencies": {
+    "@types/bunyan": "^1.8.6",
+    "@types/bunyan-format": "^0.2.3",
     "rimraf": "^3.0.0",
     "tslint": "^5.20.1",
     "typescript": "^3.7.4"
   },
   "dependencies": {
-    "@types/bunyan": "^1.8.6",
-    "@types/bunyan-format": "^0.2.3",
     "bunyan": "^1.8.12",
     "bunyan-format": "^0.2.1"
   }
