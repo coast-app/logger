@@ -1,3 +1,4 @@
+import _ from "lodash";
 import Pino from "pino";
 
 const level = process.env.LOG_LEVEL;
@@ -12,7 +13,19 @@ const redact = [
   "user.email",
 ];
 
-export const Logger = Pino({
-  level,
-  redact,
-});
+export const Logger = _.isNil(process.env.LOG_PRETTY)
+  ? Pino({
+      level,
+      redact,
+    })
+  : Pino({
+      level,
+      redact,
+      transport: {
+        target: "pino-pretty",
+        options: {
+          colorize: true,
+          translateTime: true,
+        },
+      },
+    });
