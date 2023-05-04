@@ -1,4 +1,3 @@
-import _ from "lodash";
 import Pino from "pino";
 
 const level = process.env.LOG_LEVEL;
@@ -13,9 +12,8 @@ const redact = [
   "user.email",
 ];
 
-const logPretty = process.env.LOG_PRETTY;
 export const Logger =
-  !_.isNil(logPretty) && logPretty
+  process.env.LOG_PRETTY === "true"
     ? Pino({
         level,
         redact,
