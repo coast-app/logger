@@ -13,19 +13,21 @@ const redact = [
   "user.email",
 ];
 
-export const Logger = _.isNil(process.env.LOG_PRETTY)
-  ? Pino({
-      level,
-      redact,
-    })
-  : Pino({
-      level,
-      redact,
-      transport: {
-        target: "pino-pretty",
-        options: {
-          colorize: true,
-          translateTime: true,
+const logPretty = process.env.LOG_PRETTY;
+export const Logger =
+  !_.isNil(logPretty) && logPretty
+    ? Pino({
+        level,
+        redact,
+        transport: {
+          target: "pino-pretty",
+          options: {
+            colorize: true,
+            translateTime: true,
+          },
         },
-      },
-    });
+      })
+    : Pino({
+        level,
+        redact,
+      });

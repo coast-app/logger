@@ -17,12 +17,9 @@ const redact = [
     "user.phoneNumber",
     "user.email",
 ];
-exports.Logger = lodash_1.default.isNil(process.env.LOG_PRETTY)
+const logPretty = process.env.LOG_PRETTY;
+exports.Logger = !lodash_1.default.isNil(logPretty) && logPretty
     ? (0, pino_1.default)({
-        level,
-        redact,
-    })
-    : (0, pino_1.default)({
         level,
         redact,
         transport: {
@@ -32,4 +29,8 @@ exports.Logger = lodash_1.default.isNil(process.env.LOG_PRETTY)
                 translateTime: true,
             },
         },
+    })
+    : (0, pino_1.default)({
+        level,
+        redact,
     });
