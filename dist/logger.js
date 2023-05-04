@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Logger = void 0;
-const lodash_1 = __importDefault(require("lodash"));
 const pino_1 = __importDefault(require("pino"));
 const level = process.env.LOG_LEVEL;
 const redact = [
@@ -17,8 +16,7 @@ const redact = [
     "user.phoneNumber",
     "user.email",
 ];
-const logPretty = process.env.LOG_PRETTY;
-exports.Logger = !lodash_1.default.isNil(logPretty) && logPretty
+exports.Logger = process.env.LOG_PRETTY === "true"
     ? (0, pino_1.default)({
         level,
         redact,
